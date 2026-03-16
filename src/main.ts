@@ -58,7 +58,7 @@ async function bootstrap() {
   // Swagger setup
   const config = new DocumentBuilder()
     .setTitle('Tourism Backend API')
-    .setDescription('The Aliv Digital backend API documentation')
+    .setDescription('The Tourism backend API documentation')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
