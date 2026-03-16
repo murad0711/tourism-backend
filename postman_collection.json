@@ -310,6 +310,21 @@
                 {
                   "key": "limit",
                   "value": "10"
+                },
+                {
+                  "key": "isActive",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "department",
+                  "value": "Engineering",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "Admin",
+                  "disabled": true
                 }
               ]
             }
@@ -423,89 +438,6 @@
               "raw": "{{base_url}}/users/2",
               "host": ["{{base_url}}"],
               "path": ["users", "2"]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Applications",
-      "item": [
-        {
-          "name": "Create Application",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"touristName\": \"John Doe\",\n    \"mobileNumber\": \"01712345678\",\n    \"guardianName\": \"Jane Doe\",\n    \"guardianMobileNumber\": \"01700000000\",\n    \"permanentAddress\": \"Dhaka, Bangladesh\",\n    \"presentAddress\": \"Cox's Bazar, Bangladesh\",\n    \"occupation\": \"Student\",\n    \"origin\": \"Dhaka\",\n    \"destination\": \"Cox's Bazar\",\n    \"travelStartDate\": \"2024-04-01T10:00:00Z\",\n    \"travelEndDate\": \"2024-04-05T18:00:00Z\",\n    \"touristType\": \"Domestic\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/applications",
-              "host": ["{{base_url}}"],
-              "path": ["applications"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "List Applications",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/applications",
-              "host": ["{{base_url}}"],
-              "path": ["applications"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Application Details",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/applications/1",
-              "host": ["{{base_url}}"],
-              "path": ["applications", "1"]
             }
           },
           "response": []
@@ -704,6 +636,92 @@
               "host": ["{{base_url}}"],
               "path": ["plans", "1"]
             }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Applications",
+      "item": [
+        {
+          "name": "Create Application",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"touristName\": \"John Doe\",\n    \"mobileNumber\": \"01712345678\",\n    \"guardianName\": \"Jane Doe\",\n    \"guardianMobileNumber\": \"01700000000\",\n    \"permanentAddress\": \"Dhaka, Bangladesh\",\n    \"presentAddress\": \"Cox's Bazar, Bangladesh\",\n    \"occupation\": \"Student\",\n    \"origin\": \"Dhaka\",\n    \"destination\": \"Cox's Bazar\",\n    \"travelStartDate\": \"2024-04-01T10:00:00Z\",\n    \"travelEndDate\": \"2024-04-05T18:00:00Z\",\n    \"touristType\": \"Domestic\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/applications",
+              "host": ["{{base_url}}"],
+              "path": ["applications"]
+            },
+            "description": "Submit a new travel permit application."
+          },
+          "response": []
+        },
+        {
+          "name": "List Applications",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/applications",
+              "host": ["{{base_url}}"],
+              "path": ["applications"]
+            },
+            "description": "Fetch all applications (supports filtering)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Application Details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/applications/1",
+              "host": ["{{base_url}}"],
+              "path": ["applications", "1"]
+            },
+            "description": "Get detailed information about a single application."
           },
           "response": []
         }
