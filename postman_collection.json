@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Aliv Digital Admin API",
+    "name": "Tourism Backend API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -26,10 +26,8 @@
               "raw": "{{base_url}}/auth/login",
               "host": ["{{base_url}}"],
               "path": ["auth", "login"]
-            },
-            "description": "Step 1: Validate credentials and send OTP to email."
-          },
-          "response": []
+            }
+          }
         },
         {
           "name": "Verify Login",
@@ -66,32 +64,8 @@
               "raw": "{{base_url}}/auth/verify-login",
               "host": ["{{base_url}}"],
               "path": ["auth", "verify-login"]
-            },
-            "description": "Step 2: Verify OTP and receive tokens."
-          },
-          "response": []
-        },
-        {
-          "name": "Resend OTP",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"email\": \"admin@tourism.com\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/auth/resend-otp",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "resend-otp"]
             }
-          },
-          "response": []
+          }
         },
         {
           "name": "Forgot Password",
@@ -112,8 +86,7 @@
               "host": ["{{base_url}}"],
               "path": ["auth", "forgot-password"]
             }
-          },
-          "response": []
+          }
         },
         {
           "name": "Reset Password",
@@ -134,62 +107,7 @@
               "host": ["{{base_url}}"],
               "path": ["auth", "reset-password"]
             }
-          },
-          "response": []
-        },
-        {
-          "name": "Refresh Token",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"refreshToken\": \"{{refresh_token}}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/auth/refresh",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "refresh"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Logout",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"refreshToken\": \"{{refresh_token}}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/auth/logout",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "logout"]
-            }
-          },
-          "response": []
+          }
         },
         {
           "name": "Get Profile",
@@ -211,72 +129,7 @@
               "host": ["{{base_url}}"],
               "path": ["auth", "me"]
             }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Profile",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"firstName\": \"System\",\n    \"lastName\": \"Admin (Updated)\",\n    \"department\": \"Engineering\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/auth/me",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "me"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Change Password",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"currentPassword\": \"Admin@123\",\n    \"newPassword\": \"NewSecret123!\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/auth/change-password",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "change-password"]
-            }
-          },
-          "response": []
+          }
         }
       ]
     },
@@ -299,63 +152,19 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/users?page=1&limit=10",
+              "raw": "{{base_url}}/users",
               "host": ["{{base_url}}"],
-              "path": ["users"],
-              "query": [
-                {
-                  "key": "page",
-                  "value": "1"
-                },
-                {
-                  "key": "limit",
-                  "value": "10"
-                },
-                {
-                  "key": "isActive",
-                  "value": "true",
-                  "disabled": true
-                },
-                {
-                  "key": "department",
-                  "value": "Engineering",
-                  "disabled": true
-                },
-                {
-                  "key": "name",
-                  "value": "Admin",
-                  "disabled": true
-                }
-              ]
+              "path": ["users"]
             }
-          },
-          "response": []
-        },
+          }
+        }
+      ]
+    },
+    {
+      "name": "Applications",
+      "item": [
         {
-          "name": "Get User Details",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/users/1",
-              "host": ["{{base_url}}"],
-              "path": ["users", "1"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create User",
+          "name": "Create Application",
           "request": {
             "auth": {
               "type": "bearer",
@@ -371,7 +180,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"department\": \"Testing\",\n    \"password\": \"User@123\",\n    \"roles\": [2]\n}",
+              "raw": "{\n    \"touristName\": \"John Doe\",\n    \"mobileNumber\": \"01712345678\",\n    \"guardianName\": \"Jane Doe\",\n    \"guardianMobileNumber\": \"01700000000\",\n    \"permanentAddress\": \"Dhaka, Bangladesh\",\n    \"presentAddress\": \"Cox's Bazar, Bangladesh\",\n    \"occupation\": \"Student\",\n    \"origin\": \"Dhaka\",\n    \"destination\": \"Cox's Bazar\",\n    \"travelStartDate\": \"2024-04-01T10:00:00Z\",\n    \"travelEndDate\": \"2024-04-05T18:00:00Z\",\n    \"touristType\": \"Domestic\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -379,16 +188,14 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/users",
+              "raw": "{{base_url}}/applications",
               "host": ["{{base_url}}"],
-              "path": ["users"]
-            },
-            "description": "Create a new user. Role 1 is Admin, Role 2 is View-Only."
-          },
-          "response": []
+              "path": ["applications"]
+            }
+          }
         },
         {
-          "name": "Update User",
+          "name": "List Applications",
           "request": {
             "auth": {
               "type": "bearer",
@@ -400,27 +207,17 @@
                 }
               ]
             },
-            "method": "PATCH",
+            "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"department\": \"Management\",\n    \"isActive\": true\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": {
-              "raw": "{{base_url}}/users/2",
+              "raw": "{{base_url}}/applications",
               "host": ["{{base_url}}"],
-              "path": ["users", "2"]
+              "path": ["applications"]
             }
-          },
-          "response": []
+          }
         },
         {
-          "name": "Delete User",
+          "name": "Get Application Details",
           "request": {
             "auth": {
               "type": "bearer",
@@ -432,15 +229,14 @@
                 }
               ]
             },
-            "method": "DELETE",
+            "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/users/2",
+              "raw": "{{base_url}}/applications/1",
               "host": ["{{base_url}}"],
-              "path": ["users", "2"]
+              "path": ["applications", "1"]
             }
-          },
-          "response": []
+          }
         }
       ]
     },
@@ -448,8 +244,18 @@
       "name": "Media",
       "item": [
         {
-          "name": "Upload Media",
+          "name": "Upload Document",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "POST",
             "header": [],
             "body": {
@@ -466,448 +272,8 @@
               "raw": "{{base_url}}/media/upload",
               "host": ["{{base_url}}"],
               "path": ["media", "upload"]
-            },
-            "description": "Upload an image file. Field name must be 'file'."
-          },
-          "response": []
-        },
-        {
-          "name": "List Media",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/media",
-              "host": ["{{base_url}}"],
-              "path": ["media"]
             }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Plans",
-      "item": [
-        {
-          "name": "List Plans",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/plans",
-              "host": ["{{base_url}}"],
-              "path": ["plans"],
-              "query": [
-                {
-                  "key": "planName",
-                  "value": "Unlimited",
-                  "disabled": true
-                },
-                {
-                  "key": "type",
-                  "value": "prepaid",
-                  "disabled": true
-                },
-                {
-                  "key": "status",
-                  "value": "active",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Plan Details",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/plans/1",
-              "host": ["{{base_url}}"],
-              "path": ["plans", "1"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Plan",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"price\": 29.99,\n    \"planName\": \"Premium Plan\",\n    \"subHeading\": \"Best value for power users\",\n    \"link\": \"http://example.com/premium\",\n    \"startFrom\": \"2026-03-01T00:00:00Z\",\n    \"expireOn\": \"2027-03-01T00:00:00Z\",\n    \"type\": \"prepaid\",\n    \"status\": \"active\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/plans",
-              "host": ["{{base_url}}"],
-              "path": ["plans"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Plan",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"price\": 34.99,\n    \"status\": \"active\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/plans/1",
-              "host": ["{{base_url}}"],
-              "path": ["plans", "1"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Plan",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/plans/1",
-              "host": ["{{base_url}}"],
-              "path": ["plans", "1"]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Ads Timers",
-      "item": [
-        {
-          "name": "List Active Ads Timers",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/ads-timer/active",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "ads-timer",
-                "active"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "List Ads Timers",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/ads-timer?page=1&limit=10",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "ads-timer"
-              ],
-              "query": [
-                {
-                  "key": "page",
-                  "value": "1"
-                },
-                {
-                  "key": "limit",
-                  "value": "10"
-                },
-                {
-                  "key": "status",
-                  "value": "active",
-                  "disabled": true
-                },
-                {
-                  "key": "type",
-                  "value": "prepaid",
-                  "disabled": true
-                },
-                {
-                  "key": "title",
-                  "value": "Timer",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Ads Timer Details",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/ads-timer/1",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "ads-timer",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Ads Timer",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"title\": \"Flash Sale Timer\",\n    \"subHeading\": \"Limited time offer!\",\n    \"link\": \"https://example.com/promo\",\n    \"type\": \"prepaid\",\n    \"addedOn\": \"2026-03-09T12:00:00Z\",\n    \"expireOn\": \"2026-03-10T12:00:00Z\",\n    \"status\": \"active\",\n    \"backgroundImageUrl\": \"https://example.com/bg.png\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/ads-timer",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "ads-timer"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Ads Timer",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PATCH",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"title\": \"Updated Flash Sale Timer\",\n    \"status\": \"pending\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/ads-timer/1",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "ads-timer",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Ads Timer",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/ads-timer/1",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "ads-timer",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "App Settings",
-      "item": [
-        {
-          "name": "Get Setting by Key (Public)",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/app-settings/web-profile-image",
-              "host": ["{{base_url}}"],
-              "path": ["app-settings", "web-profile-image"]
-            },
-            "description": "Public endpoint. Get a setting value by its key. No auth required."
-          },
-          "response": []
-        },
-        {
-          "name": "Get Raw Setting Value (Public)",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/app-settings/web-profile-image/raw",
-              "host": ["{{base_url}}"],
-              "path": ["app-settings", "web-profile-image", "raw"]
-            },
-            "description": "Public endpoint. Get only the raw string value of a setting. Useful for direct URLs or text content."
-          },
-          "response": []
-        },
-        {
-          "name": "Store Setting (Upsert)",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{access_token}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"key\": \"web-profile-image\",\n    \"value\": \"https://example.com/profile.png\",\n    \"type\": \"image\",\n    \"description\": \"Profile image for web app\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{base_url}}/app-settings",
-              "host": ["{{base_url}}"],
-              "path": ["app-settings"]
-            },
-            "description": "Create or update a setting by key. If the key already exists, its value will be updated. Types: image, content, text, url."
-          },
-          "response": []
+          }
         }
       ]
     }
@@ -915,15 +281,18 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "http://localhost:4000/api"
+      "value": "http://localhost:4000/api",
+      "type": "string"
     },
     {
       "key": "access_token",
-      "value": ""
+      "value": "",
+      "type": "string"
     },
     {
       "key": "refresh_token",
-      "value": ""
+      "value": "",
+      "type": "string"
     }
   ]
 }
