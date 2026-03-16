@@ -2,11 +2,13 @@ import { Type } from 'class-transformer';
 import {
   IsDate,
   IsEnum,
+  IsInt,
   IsNotEmpty,
   IsOptional,
   IsString,
+  Min,
 } from 'class-validator';
-import { TouristType } from '../entities/application.entity';
+import { IdentityType, TouristType } from '../entities/application.entity';
 
 export class CreateApplicationDto {
   @IsString()
@@ -58,4 +60,17 @@ export class CreateApplicationDto {
   @IsEnum(TouristType)
   @IsOptional()
   touristType?: TouristType;
+
+  @IsEnum(IdentityType)
+  @IsOptional()
+  identityType?: IdentityType;
+
+  @IsString()
+  @IsOptional()
+  identityNumber?: string;
+
+  @IsInt()
+  @Min(1)
+  @IsOptional()
+  numberOfVisitors?: number;
 }

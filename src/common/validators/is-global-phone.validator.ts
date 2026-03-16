@@ -6,7 +6,7 @@ import {
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 
 export function IsGlobalPhoneNumber(validationOptions?: ValidationOptions) {
-  return function (object: Object, propertyName: string) {
+  return function (object: object, propertyName: string) {
     registerDecorator({
       name: 'IsGlobalPhoneNumber',
       target: object.constructor,

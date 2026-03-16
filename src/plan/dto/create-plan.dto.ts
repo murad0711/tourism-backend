@@ -42,7 +42,7 @@ export class CreatePlanDto {
 
   @IsOptional()
   @Type(() => Object)
-  media?: Object;
+  media?: object;
 
   @IsEnum(PlanType)
   type: PlanType;

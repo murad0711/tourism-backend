@@ -40,19 +40,51 @@ export class ApplicationsController {
     return this.applicationsService.findAll(filterDto);
   }
 
+  @Get('my')
+  @RequirePermissions('applications.read')
+  findMyHistory(
+    @CurrentUser() user: User,
+    @Query() filterDto: ApplicationFilterDto,
+  ) {
+    return this.applicationsService.findMyHistory(user, filterDto);
+  }
+
   @Get(':id')
   @RequirePermissions('applications.read')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.applicationsService.findOne(id);
   }
 
-  @Patch(':id/review')
+  @Patch(':id')
   @RequirePermissions('applications.update')
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateApplicationDto: UpdateApplicationDto,
   ) {
     return this.applicationsService.update(id, updateApplicationDto);
+  }
+
+  @Post(':id/submit')
+  @RequirePermissions('applications.update')
+  submit(@Param('id', ParseIntPipe) id: number) {
+    return this.applicationsService.submit(id);
+  }
+
+  @Patch(':id/review')
+  @RequirePermissions('applications.update')
+  review(
+    @Param('id', ParseIntPipe) id: number,
+    @Body()
+    reviewDto: {
+      action: 'APPROVE' | 'REJECT' | 'REQUEST_RESUBMISSION';
+      remarks?: string;
+    },
+  ) {
+    return this.applicationsService.review(
+      id,
+      reviewDto.action,
+      reviewDto.remarks,
+    );
   }
 
   @Delete(':id')

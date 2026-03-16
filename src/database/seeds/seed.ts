@@ -20,7 +20,15 @@ const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME || 'postgres',
   password: process.env.DB_PASSWORD || 'password',
   database: process.env.DB_DATABASE || 'nest-auth',
-  entities: [User, Role, Permission, RefreshToken, Plan, AppSetting, Application],
+  entities: [
+    User,
+    Role,
+    Permission,
+    RefreshToken,
+    Plan,
+    AppSetting,
+    Application,
+  ],
   synchronize: false,
   logging: true,
 });
@@ -43,8 +51,14 @@ const PERMISSIONS = [
   { slug: 'app_settings.read', description: 'View app settings' },
   { slug: 'app_settings.create', description: 'Create or update app settings' },
   { slug: 'applications.read', description: 'View permit applications' },
-  { slug: 'applications.create', description: 'Create new permit applications' },
-  { slug: 'applications.update', description: 'Update/Review permit applications' },
+  {
+    slug: 'applications.create',
+    description: 'Create new permit applications',
+  },
+  {
+    slug: 'applications.update',
+    description: 'Update/Review permit applications',
+  },
   { slug: 'applications.delete', description: 'Delete permit applications' },
 ];
 
@@ -80,20 +94,13 @@ const ROLES = [
     name: 'parjatan-admin',
     description: 'Review and verify applications',
     isStatic: true,
-    permissions: [
-      'users.read',
-      'applications.read',
-      'applications.update',
-    ],
+    permissions: ['users.read', 'applications.read', 'applications.update'],
   },
   {
     name: 'tourist',
     description: 'Tourist access for registration and application',
     isStatic: true,
-    permissions: [
-      'applications.read',
-      'applications.create',
-    ],
+    permissions: ['applications.read', 'applications.create'],
   },
   {
     name: 'view-only',

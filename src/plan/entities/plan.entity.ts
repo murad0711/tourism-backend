@@ -44,7 +44,7 @@ export class Plan {
   backgroundImageUrl: string;
 
   @Column({ type: 'jsonb', nullable: true })
-  media: Object;
+  media: object;
 
   @Column({ type: 'enum', enum: PlanType })
   type: PlanType;

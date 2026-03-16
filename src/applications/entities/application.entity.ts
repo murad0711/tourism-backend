@@ -25,6 +25,11 @@ export enum TouristType {
   FOREIGN = 'FOREIGN',
 }
 
+export enum IdentityType {
+  NID = 'NID',
+  PASSPORT = 'PASSPORT',
+}
+
 @Entity('applications')
 export class Application {
   @PrimaryGeneratedColumn()
@@ -79,6 +84,19 @@ export class Application {
     default: ApplicationStatus.DRAFT,
   })
   status: ApplicationStatus;
+
+  @Column({
+    type: 'enum',
+    enum: IdentityType,
+    nullable: true,
+  })
+  identityType: IdentityType;
+
+  @Column({ nullable: true })
+  identityNumber: string;
+
+  @Column({ default: 1 })
+  numberOfVisitors: number;
 
   @Column({ nullable: true })
   nidPath: string;
