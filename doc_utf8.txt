@@ -1,0 +1,475 @@
+﻿Digital Tourism Permission System
+  
+
+
+
+  
+
+
+
+Prepared By
+	Prepared for
+	Workspace Infotech Ltd.                
+House-16, Road-12,                        
+Khilkhet, Nikunja- 2
+Dhaka 1229                                
+	Bangladesh Parjatan Corporation
+ E-5, C, Administrative Area, Parjatan Bhaban, 1 W Agargaon, Dhaka 1207
+
+
+
+
+
+
+	
+
+
+
+
+
+User Story: Digital Tourism Permission System
+User Persona:
+Rahim Uddin, a young professional from Dhaka, plans to visit Sajek Valley with his friends. Since Sajek is a restricted tourism area, visitors must obtain official travel permission before entering. Instead of going through the traditional manual process, Rahim uses the Digital Tourism Permission System to apply online.
+He creates an account, fills out the tourism permit application form, uploads his National ID, and pays the permit fee through a digital payment gateway. The system records his application and sends it to the tourism authority for review.
+At the administration office, Captain Farhana Ahmed, a tourism security officer, reviews Rahim’s application through the admin dashboard. She verifies the submitted information and documents. If everything is correct, she approves the request; otherwise, she can request corrections or reject the application.
+Once approved, the system generates a digital permit with a QR code, which Rahim can download and show at security checkpoints during his trip.At a higher level, Dr. Mahmud Hasan, a representative of the national tourism authority, monitors tourism activities through the system’s analytics dashboard. He can track visitor statistics, tourism demand, and revenue reports to support policy decisions and improve tourism management.
+Through this system(web and mobile app), tourists can easily obtain travel permits, authorities can manage applications efficiently, and the government can monitor tourism activity in a structured and transparent way.
+User Journey:
+User Registration
+User Action :
+Rahim visits the Digital Tourism Permission System website and creates an account by providing:
+* Full Name
+* Mobile Number
+* Email Address
+* Password
+* Tourist Type (Domestic / Foreign)
+He verifies his account using an OTP sent to his phone or email. He enters the OTP to verify his account.
+
+
+System Response: The system automatically:
+* validates the registration information
+* verifies the OTP
+* creates a new user account
+* assigns a unique visitor ID
+* stores user details in the database
+* redirects the user to the tourist dashboard
+
+
+
+
+
+
+
+
+Profile Update (Tourist)
+User Action (Tourist):
+Rahim logs into the Digital Tourism Permission System and opens his Tourist Dashboard.
+From the dashboard, he navigates to the My Profile section to review his personal information.
+Rahim notices that he needs to update his contact information. He selects Edit Profile and updates the following details:
+• Mobile Number
+• Email Address
+After entering the new information, he clicks Save Changes.
+
+
+
+
+System Response: 
+* Validates the updated information
+* Checks whether the mobile number and email format are valid
+* Sends an OTP verification code to the new mobile number or email
+Rahim enters the OTP to verify the updated contact information.
+Once verification is successful, the system:
+* Updates the user profile in the database
+* Confirms that the profile has been successfully updated
+* Displays a confirmation message:
+“Your profile information has been successfully updated.”
+Login to System
+User Action:
+Rahim opens the mobile app and logs in using:
+* Mobile Number/ Email
+* Password
+System Response: 
+* authenticates user credentials
+* loads the Visitor Dashboard
+Tourism Permit Application
+User Action (Tourist)
+Rahim clicks Apply for a Tourism Permit. He fills out the tourism permission form and uploads his National ID (NID) as identity verification.
+Application Information
+* Tourist Name: Rahim Uddin
+* Mobile Number: 017XXXXXXXX
+* Guardian Name: Abdul Karim
+* Guardian Mobile: 018XXXXXXXX
+* Permanent Address: Dhaka, Bangladesh
+* Present Address: Mirpur, Dhaka
+* Occupation: Student
+* Place of Origin: Dhaka
+* Destination: Sajek Valley
+* Arrival Date: 15 July 2026
+* Departure Date: 18 July 2026
+* Documents upload
+For foreign tourists, required document:
+* Passport Copy
+
+
+System Response: 
+* validates form fields
+* generates a unique application ID
+* saves application data
+* sets application status to Draft
+If the user clicks Submit Application, the system:
+* updates status to Submitted
+* securely stores documents in encrypted storage
+* attaches documents to the application
+* updates application status to Payment Pending
+Online Payment
+User Action (Visitor)
+Rahim proceeds to Pay Permit Fee.
+Available payment options:
+* bKash
+
+
+Rahim clicks bKash and completes the payment.
+
+
+System Response: 
+* generates a payment request
+* redirects user to payment gateway
+* receives payment confirmation
+* stores transaction details
+
+Payment details recorded:
+   * Transaction ID
+   * Payment Method
+   * Payment Date
+   * Amount Paid
+
+Application status changes to: Payment Completed
+The system then moves the application to Under Review.
+Application Review
+User Action(Admin Authority)
+An army officer or tourism authority officer logs into the Admin Dashboard. The admin opens the Pending Applications section and reviews Rahim's application.
+The admin verifies:
+      * NID document
+      * travel dates
+      * destination
+      * payment confirmation
+
+
+System Response:  The system displays:
+      * application details
+      * uploaded documents
+      * payment information
+      * travel plan
+
+Admin has the following options:
+         * Approve Application
+         * Reject Application
+         * Request Resubmission
+
+Resubmission Scenario
+User Action
+The admin finds that the NID copy is unclear. Admin selects Request Resubmission and adds remarks: "Please upload a clearer NID copy."
+
+
+System Response:
+            * updates application status to Resubmission Requested
+            * sends notifications via:
+            * In-app alert
+
+The visitor receives the notification.
+
+
+User Action (Visitor)
+Rahim logs into the system and edits his application.He uploads a clear NID copy and clicks Resubmit.
+System Response
+The system:
+               * updates status to Resubmitted
+               * sends the application back to Under Review
+
+
+
+
+
+
+
+Mandatory Visitor Pass Return and Exit Control
+User Action(Admin)
+After reviewing the corrected document, the admin selects Approve Application.
+System Response:
+                  * updates application status to Approved
+                  * generates a Digital Tourism Permit
+Permit details include:
+                  * Permit ID
+                  * Tourist Name
+                  * Destination
+                  * Arrival Date
+                  * Departure Date
+                  * QR Code
+                  * NID
+                  * Admin Approval Signature
+The system sends a notification:
+"Your tourism permit has been approved."
+
+
+
+
+Permit Download
+User Action(Tourist)
+Rahim opens the Approved Applications section and downloads his permit.
+System Response:
+                  * download the permit as PDF
+                  * view the QR Code permit
+                  * save it to mobile device
+The visitor must show this permit at security checkpoints.
+QR Code Verification at Checkpoint
+User Action(Security Officer)
+At the destination checkpoint, the officer scans Rahim’s QR Code permit.
+System Response: The system retrieves permit information and displays:
+                  * tourist name
+                  * NID
+                  * destination
+                  * travel dates
+                  * permit status
+If valid: Access Granted
+If invalid: Access Denied
+View Past Visit History (Tourist)
+User Action (Tourist):
+Rahim logs into the Digital Tourism Permission System and opens his Tourist Dashboard.
+From the dashboard menu, he selects Visit History to review the records of his previous trips to restricted tourism destinations.
+The system displays a list of all previously approved tourism permits associated with Rahim’s account.
+Rahim can view details of each visit including the destination, travel dates, and permit status.
+He can also open a specific record to view the full permit information.
+
+
+
+
+
+
+System Response: 
+                  * Retrieves the visitor's historical permit records from the database
+                  * Displays a list of past tourism permits in chronological order
+Displayed information includes:
+                  * Permit ID
+                  * Destination
+                  * Arrival Date
+                  * Departure Date
+                  * Permit Status
+                  * Permit Issue Date
+Users may also access the previously issued permit document if needed.
+
+
+
+
+Tourism Analytics Dashboard
+User Action (Super Admin)
+A government tourism authority officer logs into the Super Admin Dashboard. They open Tourism Analytics.
+
+
+System Response: The system generates analytics including:
+                  * Visitor statistics
+                  * daily visitor count
+                  * domestic vs foreign tourists
+                  * most visited destinations
+
+Financial reports:
+                     * daily revenue
+                     * monthly revenue
+
+Charts display:
+                        * Visitor Growth: Shows how the number of tourists increases or decreases over time (daily, monthly, or yearly).
+                        * Tourism Trends: Displays patterns in tourist activity, helping authorities understand popular travel periods and destinations.
+                        * Seasonal Demand: Illustrates how tourism demand changes during different seasons or holidays.
+
+
+
+ Forgot Password / Account Recovery
+User Action(Tourist)
+Rahim forgets the password for his Digital Tourism Permission System account.He opens the login page of the system and selects “Forgot Password”.The system asks Rahim to enter his registered mobile number or email address associated with his account. Rahim enters his registered mobile number and clicks Request Reset Code.
+
+
+
+
+System Response:
+                        * Validates the provided mobile number or email address
+                        * Confirms that the account exists in the system
+                        * Generates a secure One-Time Password (OTP)
+                        * Sends the OTP to the registered mobile number or email
+Once verified, the system prompts Rahim to create a new password.
+Rahim enters:
+New Password
+Confirm New Password
+He then selects the Update Password.
+The system displays a confirmation message:
+“Your password has been successfully updated.”
+
+
+
+
+
+
+Admin Management
+User Action(Super Admin)
+The super admin manages system configurations.
+Actions include:
+                        * creating admin accounts(Mobile Number/ Email,Password)
+                        * managing destinations
+                        * updating permit prices
+
+
+System Response: The system generates detailed reports including:
+                        * saves updated configurations
+                        * logs admin activity
+                        * updates system settings instantly
+
+Notification System
+System Events
+The system automatically sends notifications when:
+                           * application submitted
+                           * payment confirmed
+                           * resubmission requested
+                           * permit approved
+                           * permit rejected
+
+Notification channels:
+                              * In-App alerts
+Outcome
+The implementation of the Digital Tourism Permission System (DTPS) transforms the traditional manual tourism permit process into a secure and fully digital platform.
+The system ensures:
+                              * faster and more convenient tourism permit applications
+                              * secure online document submission and verification
+                              * integrated digital payment processing
+                              * automated permit generation with QR code verification
+                              * real-time application tracking and notifications
+                              * centralized tourism data and analytics for authorities
+
+With this system in place, the tourism authority can manage visitor permissions more efficiently while maintaining better control over tourist movement in restricted destinations.
+The Digital Tourism Permission System enables a modern, transparent, and efficient tourism management process, improving both the traveler experience and administrative oversight.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tourism Permit Application – Field Definitions
+Field Name
+	Field Type
+	Description
+	Tourist Name
+	Text Field
+	User enters full name
+	Mobile Number
+	Number / Text Field
+	Contact phone number
+	Guardian Name
+	Text Field
+	Name of parent or guardian
+	Guardian Mobile
+	Number / Text Field
+	Guardian contact number
+	Permanent Address
+	Text Area
+	Full permanent address
+	Present Address
+	Text Area
+	Current residential address
+	Occupation
+	Text Field
+	Tourist profession
+	Place of Origin
+	Text Field
+	District or country of origin
+	Destination
+	Dropdown Field
+	Tourists select destinations (Sajek, Sundarbans etc.)
+	Arrival Date
+	Date Field
+	Planned arrival date
+	Arrival Time
+	Time Field (optional)
+	Planned arrival time
+	Departure Date
+	Date Field
+	Planned departure date
+	Departure Time
+	Time Field (optional)
+	Planned departure time
+	Tourist Type
+	Radio Button / Dropdown
+	Domestic or Foreign tourist
+	NID Upload
+	File Upload Field
+	Upload National ID (for domestic tourist)
+	Passport Upload
+	File Upload Field
+	Upload passport copy (for foreign tourist)
+	Digital Signature
+	Signature Field
+	Tourist signs digitally
+	Permit ID
+	Auto Generated Field
+	Generated by system after approval
+	Application ID
+	Auto Generated Field
+	Unique ID for application
+	
+
+Application Status Workflow
+The tourism permit application moves through several statuses during its lifecycle.
+
+
+Status
+	Description
+	Draft
+	Application saved but not submitted
+	Submitted
+	Application submitted by tourist
+	Payment Pending
+	Waiting for permit fee payment
+	Payment Completed
+	Payment successfully received
+	Under Review
+	Application under admin review
+	Resubmission Requested
+	Admin requested correction
+	Resubmitted
+	Tourist resubmitted corrected application
+	Approved
+	Permit approved and generated
+	Rejected
+	Application rejected
+	
+
+
+
+Page - , 06 March, 2026                
+House-16, Road-12, (5th & 6th Floor)
+Nikunja-2, Khilkhet, Dhaka-1229                                        
+	  
+
+	info@workspaceit.com
++8801977-9748-00        
++88 02 55098341
